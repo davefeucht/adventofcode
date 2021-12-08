@@ -1,5 +1,6 @@
 const commands = require('./move_list.json').commands;
 
+let aim = 0;
 let horizontalPosition = 0;
 let depth = 0;
 
@@ -8,12 +9,13 @@ commands.forEach(command => {
     switch (commandType) {
         case 'forward':
             horizontalPosition += parseInt(value);
+            depth += aim * parseInt(value);
             break;
         case 'down':
-            depth += parseInt(value);
+            aim += parseInt(value);
             break;
         case 'up':
-            depth -= parseInt(value);
+            aim -= parseInt(value);
             break;
         default:
     }
